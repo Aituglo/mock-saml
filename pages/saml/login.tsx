@@ -48,7 +48,7 @@ export default function Login() {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        email: `${username}@${domain}`,
+        email: `${username}`,
         id,
         audience: audience || state.audience,
         acsUrl: acsUrl || state.acsUrl,
@@ -119,7 +119,7 @@ export default function Login() {
                       </div>
                     </div>
                   ) : null}
-                  <div className='form-control'>
+                  <div className='form-control col-span-2'>
                     <label className='label'>
                       <span className='label-text font-bold'>Email</span>
                     </label>
@@ -129,26 +129,12 @@ export default function Login() {
                       ref={emailInp}
                       autoComplete='off'
                       type='text'
-                      placeholder='jackson'
+                      placeholder='jackson@test.com'
                       value={state.username}
                       onChange={handleChange}
                       className='input input-bordered'
                       title='Please provide a mock email address'
                     />
-                  </div>
-                  <div className='form-control'>
-                    <label className='label'>
-                      <span className='label-text font-bold'>Domain</span>
-                    </label>
-                    <select
-                      name='domain'
-                      id='domain'
-                      className='select select-bordered'
-                      onChange={handleChange}
-                      value={state.domain}>
-                      <option value='example.com'>@example.com</option>
-                      <option value='example.org'>@example.org</option>
-                    </select>
                   </div>
                   <div className='form-control col-span-2'>
                     <label className='label'>
