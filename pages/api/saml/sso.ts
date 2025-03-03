@@ -33,14 +33,13 @@ async function processSAMLRequest(req: NextApiRequest, res: NextApiResponse, isP
 
     const { id, audience, acsUrl, providerName, publicKey } = await saml.parseSAMLRequest(rawRequest, isPost);
 
-    /*
+
     if (isPost) {
       const { valid } = await saml.hasValidSignature(rawRequest, publicKey, null);
       if (!valid) {
         throw new Error('Invalid signature');
       }
     }
-    */
 
     const params = new URLSearchParams({ id, audience, acsUrl, providerName, relayState });
 
